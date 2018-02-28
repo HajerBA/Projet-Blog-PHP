@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Blogueur et ses articles</title>
+              <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-align: center;
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                letter-spacing: -3px;
+                font-family: 'Lato', sans-serif;
+                font-size: 100px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+			.nav{
+				justify-content: end;
+			}
+			#icon{
+				width:80px;
+				height:80px;
+				margin-right: 826px;
+			}
+      .icons{
+        width: 100px;
+      }
+        #footer-wrapper{
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+     <header>
+	
+       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+	    <a href="{{ path_for('index') }}"> <img id="icon" src="/img/icone.png" alt="icone blog"></a>
+   <li class="nav-item">
+    <a class="nav-link active" id="pills-home-tab"  href="{{ path_for('article') }}" >Liste des blogueurs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" href="{{ path_for('connexion') }}" >Connexion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('inscription') }}" >Inscription</a>  </li>
+</ul>
+
+</header>
+
+<div class="container">
+  <h2>Votre blogueur et les themes de ses articles</h2>
+   
+  <table class="table">
+    <thead>
+      <tr>
+        
+        <th>Articles</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for article in themes %}  
+     <tr class="success">
+        <td>{{ article.theme }} </td>
+              
+      </tr>
+         {% endfor %}
+           
+         
+                
+      
+    </tbody>
+  </table>
+</div>
+
+<div id="footer-wrapper">
+                <div class="container">
+                                        <!-- CUSTOMIZE AREA -->
+                    <div id="bottom-site">
+                        <div class="row container">
+<dl class="column column3" style="margin-left: 10pc;">
+	<dd>Navigation</dd>
+		<dd><a href="{{path_for('index')}}">Accueil</a></dd>
+	<dd><a href="{{path_for('article')}}">liste des blogueurs</a></dd>
+	<dd><a href="{{path_for('connexion')}}">Connexion</a></dd>
+	<dd><a href="{{path_for('inscription')}}">Inscription</a></dd>
+</dl>
+
+<dl class="column column3" style="margin-left: 500px;">
+	<dt>Liens utiles</dt>
+	<dd><a href=""> <i class="fab fa-twitter-square"></i></a></dd>
+	<dd><a href=""><i class="fab fa-facebook"></i></a></dd>
+	<dd><a href=""><i class="fab fa-instagram"></i></a></dd>
+	<dd><a href=""><i class="fab fa-linkedin"></i></a></dd>
+
+</dl>
+
+
+</div>
+
+                    </div>
+                                                                            </div>
+            </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

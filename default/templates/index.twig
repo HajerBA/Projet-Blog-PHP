@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Accueil</title>
+                <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-align: center;
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                letter-spacing: -3px;
+                font-family: 'Lato', sans-serif;
+                font-size: 100px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+			.nav{
+				justify-content: end;
+			}
+			#icon{
+				width:80px;
+				height:80px;
+				margin-right: 826px;
+			}
+        #footer-wrapper{
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+     <header>
+	
+       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+	   <a href="{{ path_for('index') }}"> <img id="icon" src="img/icone.png" alt="icone blog"> </a>
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-home-tab"  href="{{ path_for('article') }}" >Liste des blogueurs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" href="{{path_for('connexion') }}" >Connexion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('inscription') }}" >Inscription</a>
+  </li>
+</ul>
+
+</header>
+
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="img/Developpeur.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Développeur</h5>
+      <p class="card-text">Selon le dictionnaire de la langue française,
+       le Larousse1 et l'Office québécois de la langue française2 (mais inconnu du Centre national de ressources textuelles et lexicales3),
+        le terme « développeur » s'applique en informatique à une personne ou une société qui développe et conçoit des logiciels. </p>
+    </div>
+    <div class="card-footer">
+      <a href=""><small class="text-muted">lire la suite</small></a>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img/etudiant.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Développement web</h5>
+      <p class="card-text">
+       Un site web, c'est avant tout des fichiers qui sont récupérés puis traités par un navigateur.
+       Lorsqu'on développe pour le web, on choisit de mettre en ligne du contenu sur Internet.
+       Le résultat est appelé un site internet.
+      </p>
+    </div>
+    <div class="card-footer">
+      <a href=""><small class="text-muted">lire la suite</small></a>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="./img/langage.png" alt="Card image cap" style="height: 222px;">
+    <div class="card-body">
+      <h5 class="card-title">Langages Web</h5>
+      <p class="card-text">
+        La programmation web peut prendre différentes formes :
+         de la simple page statique à la page dynamique avec connexion à une base de données. Nous allons tracer ici un bref aperçu de différentes technologies possibles dans la programmation côté client ou côté serveur.
+      </p>
+    </div>
+    <div class="card-footer">
+      <a href=""><small class="text-muted">lire la suite</small></a>
+    </div>
+  </div>
+</div>
+
+<div id="footer-wrapper">
+                <div class="container">
+                                        <!-- CUSTOMIZE AREA -->
+                    <div id="bottom-site">
+                        <div class="row container">
+<dl class="column column3" style="margin-left: 10pc;">
+	<dd>Navigation</dd>
+	<dd><a href="{{path_for('index')}}">Accueil</a></dd>
+	<dd><a href="{{path_for('article')}}">liste des blogueurs</a></dd>
+	<dd><a href="{{path_for('connexion')}}">Connexion</a></dd>
+	<dd><a href="{{path_for('inscription')}}">Inscription</a></dd>
+</dl>
+
+<dl class="column column3" style="margin-left: 500px;">
+	<dt>Liens utiles</dt>
+	<dd><a href=""> <i class="fab fa-twitter-square"></i></a></dd>
+	<dd><a href=""><i class="fab fa-facebook"></i></a></dd>
+	<dd><a href=""><i class="fab fa-instagram"></i></a></dd>
+	<dd><a href=""><i class="fab fa-linkedin"></i></a></dd>
+
+</dl>
+
+
+</div>
+</div> </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
