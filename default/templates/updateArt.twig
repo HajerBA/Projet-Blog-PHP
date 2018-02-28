@@ -33,7 +33,7 @@
 			#icon{
 				width:80px;
 				height:80px;
-				margin-right: 776px;
+				margin-right: 644px;
 			}
             .wpcf7{
                 border:2px solid gray; 
@@ -52,10 +52,13 @@
 	    <a href="{{ path_for('index') }}"> <img id="icon" src="/img/icone.png" alt="icone blog"></a>
 	 
   <li class="nav-item">
-    <a class="nav-link active" id="pills-home-tab"  href="{{ path_for('article') }}" >Liste des personnes</a>
+    <a class="nav-link active" id="pills-home-tab"  href="{{ path_for('article') }}" >Liste des blogueurs</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" href="{{ path_for('connexion') }}" >Sign in</a>
+    <a class="nav-link" id="pills-profile-tab" href="{{ path_for('connexion') }}" >Connexion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('signOut') }}" >Déconnexion</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('inscription') }}" >Sign up</a>

@@ -13,10 +13,7 @@ use simplon\entities\Person;
 $app->get('/', function (Request $request, Response $response, array $args) {
       
     // Render index view
-    return $this->view->render($response, 'index.twig', [
-        'variable' => 'Yes It works',
-       
-    ]);
+    return $this->view->render($response, 'index.twig');
 })->setName('index');
 
 $app->get('/article/', function (Request $request, Response $response, array $args) {
@@ -31,27 +28,27 @@ $app->get('/article/', function (Request $request, Response $response, array $ar
     
     // Render index view
     return $this->view->render($response, 'article.twig', [
-        'variable' => 'Yes It works',
+        
         'persons' => $persons,
         'nbarticle' => $nbart
     ]);
 })->setName('article');
 
-$app->get('/personart/{id}', function (Request $request, Response $response, array $args) {
-  
+$app->get('/myblog', function (Request $request, Response $response, array $args) {
+    $person=$_SESSION['person'];
     $dao = new DaoPerson();
-    $person=$dao->getById($args['id']);
+   // $person=$dao->getById($args['id']);
     $daoArt=new DaoArticle();
-    $themes=$daoArt->getThemeByID($args['id']);
+    $themes=$daoArt->getThemeByID($person->getId());
 
     //var_dump($themes);
-    return $this->view->render($response, 'connexion.twig', [
-         //'person' => $person,
-        //'themes' =>$themes
+    return $this->view->render($response, 'myblog.twig', [
+         'person' => $person,
+        'themes' =>$themes
     ]);
 
    
-})->setName('personart');
+})->setName('myblog');
 
 $app->get('/personArtSV/{id}', function (Request $request, Response $response, array $args) {
   
@@ -61,18 +58,14 @@ $app->get('/personArtSV/{id}', function (Request $request, Response $response, a
     $themes=$daoArt->getThemeByID($args['id']);
 
     
-    return $this->view->render($response, 'index.twig');
-
+    return $this->view->render($response, 'personArtSV.twig', [
+        'person' => $person,
+       'themes' =>$themes
+   ]);
    
 })->setName('personArtSV');
 
-// $app->post('/personart/{id}', function (Request $request, Response $response, array $args) {
-   
-    
-//     $tabArt=$request->getParsedBody();
-    
-    
-// })->setName('personart');
+
 //pour afficher liste article
  $app->get('/addart', function (Request $request, Response $response, array $args) {
     $dao = new DaoPerson();
@@ -91,13 +84,13 @@ $app->get('/personArtSV/{id}', function (Request $request, Response $response, a
 
 $app->get('/connexion', function (Request $request, Response $response, array $args) {
     
-    if($_SESSION['islogged']){
+    if(!empty($_SESSION['person'])){
 
-     $addArticleurl=$this->router->pathFor('addart');
+     $addArticleurl=$this->router->pathFor('myblog');
      return $response->withRedirect($addArticleurl);
     } else {
-        $addArticleurl=$this->router->pathFor('connexion');
-     return $response->withRedirect($addArticleurl);
+        
+        return $this->view->render($response, 'connexion.twig');
     }
     
     
@@ -111,27 +104,22 @@ $app->post('/connexion', function (Request $request, Response $response, array $
     $tabperson=$request->getParsedBody();
     //$person=$dao->getById($args['id']);
     $person=$dao->getMail($tabperson['mail']);
-    $addArticleurl=$this->router->pathFor('addart');
+    $addArticleurl=$this->router->pathFor('myblog');
     $cnxUrl=$this->router->pathFor('connexion');
     
        
         if ( $person->getPassword() === $tabperson['pwd']) {
-            $_SESSION['islogged']=true;
+           
             $_SESSION['person']=$person;
             $_SESSION['themes']=$daoArt->getById($person->getId());
-            return $this->view->render($response, 'addart.twig', [
-   
-                'person' => $_SESSION['person'],
-                 'themes'=>$_SESSION['themes']
-
-            ]);
+            return $response->withRedirect( $addArticleurl);
         } else {
             return $response->withRedirect($cnxUrl);
         }
                  
 })->setName('connexion');
 
-$app->get('/inscription/', function (Request $request, Response $response, array $args) {
+$app->get('/inscription', function (Request $request, Response $response, array $args) {
    
 
     // Render index view
@@ -142,7 +130,7 @@ $app->get('/inscription/', function (Request $request, Response $response, array
 
 //pour ajouter article
 
-$app->post('/addart/', function (Request $request, Response $response, array $args) {
+$app->post('/addart', function (Request $request, Response $response, array $args) {
     $daoArt = new DaoArticle();
     $dao = new DaoPerson();
     $person=$_SESSION['person'];
@@ -172,9 +160,9 @@ $app->get('/deleteArt/{id}', function (Request $request, Response $response, arr
    // $person=$_SESSION['person'];
    
     $daoArt->delete(intval($args['id']));
-    $param = ['id' => $args['id']];
+   // $param = ['id' => $args['id']];
 
-    return $response->withRedirect($this->router->pathFor('personart',$param));
+    return $response->withRedirect($this->router->pathFor('myblog'));
 })->setName('deleteArt');
 
 $app->get('/updateArt/{id}', function (Request $request, Response $response, array $args) {

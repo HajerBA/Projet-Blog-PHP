@@ -33,10 +33,10 @@
 			#icon{
 				width:80px;
 				height:80px;
-				margin-right: 776px;
+				margin-right: 644px;
 			}
       .icons{
-        width: 100px;
+        width: 50px;
       }
         #footer-wrapper{
                 margin-top: 50px;
@@ -55,6 +55,9 @@
     <a class="nav-link" id="pills-profile-tab" href="{{ path_for('connexion') }}" >Connexion</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('signOut') }}" >Déconnexion</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('inscription') }}" >Inscription</a>  </li>
 </ul>
 
@@ -62,7 +65,7 @@
 
 <div class="container">
   <h2>Mes articles</h2>
-   <a href="{{path_for('connexion',{'id': person.id}) }}">
+   <a href="{{path_for('addart') }}">
             <img class="icons" src="/img/addd.png" alt="icone blog">
     </a>
 
@@ -79,7 +82,7 @@
      <tr class="success">
         <td>{{ article.theme }} </td>
         <td >
-           <a href="{{path_for('connexion') }}">
+           <a href="{{path_for('addart') }}">
             <img class="icons" src="/img/consultUpdate.png" alt="icone consult et update">
           </a>
           <a href="{{path_for('deleteArt',{'id': article.id}) }}">

@@ -33,7 +33,7 @@
 			#icon{
 				width:80px;
 				height:80px;
-				margin-right: 776px;
+				margin-right: 644px;
 			}
             .wpcf7{
                 border:2px solid gray; 
@@ -52,16 +52,16 @@
 	    <a href="{{ path_for('index') }}"> <img id="icon" src="/img/icone.png" alt="icone blog"></a>
 	 
   <li class="nav-item">
-    <a class="nav-link active" id="pills-home-tab"  href="{{ path_for('article') }}" >Liste des personnes</a>
+    <a class="nav-link active" id="pills-home-tab"  href="{{ path_for('article') }}" >Liste des blogueurs</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" href="{{ path_for('connexion') }}" >Sign in</a>
+    <a class="nav-link" id="pills-profile-tab" href="{{ path_for('connexion') }}" >Connexion</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('inscription') }}" >Sign up</a>
+    <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('inscription') }}" >Inscription</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('signOut') }}" >Sign out</a>
+    <a class="nav-link" id="pills-contact-tab"  href="{{ path_for('signOut') }}" >Déconnexion</a>
   </li>
 </ul>
 
@@ -87,7 +87,7 @@
 			<div role="form" class="wpcf7" id="wpcf7-f1226-p4234-o1" lang="fr-FR" dir="ltr">
 <div class="screen-reader-response"></div>
 <!-- add article-->
-<form action="{{path_for('addart',{'id':person.id})}}" method="post" class="wpcf7-form" novalidate="novalidate" id="add">
+<form action="{{path_for('addart')}}" method="post" class="wpcf7-form" novalidate="novalidate" id="add">
 
 <p>Theme :<br>
     <span class="wpcf7-form-control-wrap your-theme">
@@ -144,9 +144,9 @@
 <dl class="column column3" style="margin-left: 10pc;">
 	<dd>Navigation</dd>
 		<dd><a href="{{path_for('index')}}">Accueil</a></dd>
-	<dd><a href="{{path_for('article')}}">liste des personnes</a></dd>
-	<dd><a href="{{path_for('connexion')}}">Sign in</a></dd>
-	<dd><a href="{{path_for('inscription')}}">Sign up</a></dd>
+	<dd><a href="{{path_for('article')}}">liste des blogueurs</a></dd>
+	<dd><a href="{{path_for('connexion')}}">Connexion</a></dd>
+	<dd><a href="{{path_for('inscription')}}">Inscription</a></dd>
 </dl>
 
 <dl class="column column3" style="margin-left: 500px;">
