@@ -53,6 +53,19 @@ $app->get('/personart/{id}', function (Request $request, Response $response, arr
    
 })->setName('personart');
 
+$app->get('/personArtSV/{id}', function (Request $request, Response $response, array $args) {
+  
+    $dao = new DaoPerson();
+    $person=$dao->getById($args['id']);
+    $daoArt=new DaoArticle();
+    $themes=$daoArt->getThemeByID($args['id']);
+
+    
+    return $this->view->render($response, 'index.twig');
+
+   
+})->setName('personArtSV');
+
 // $app->post('/personart/{id}', function (Request $request, Response $response, array $args) {
    
     
